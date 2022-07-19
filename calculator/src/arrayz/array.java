@@ -1,4 +1,4 @@
-package practice;
+package arrayz;
 
 public class array {
 

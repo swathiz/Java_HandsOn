@@ -1,4 +1,4 @@
-package practice;
+package methds;
 
 public class Methods {
 	//method defination

@@ -1,9 +1,8 @@
-package practice;
+package typecasting;
 
 public class TypeCasting {
 
 	public static void main(String[] args) {
-		
 		
 		//From smaller to larger type(in bytes) it happens to be implict conversion
 		System.out.println("Implicit Type Casting");
@@ -36,8 +35,6 @@ public class TypeCasting {
 		System.out.println("value of m:"+m);
 		//As we are converting it to int it removed the decimal value and printing the 
 		//m value
-		
-		
 		
 		
 		
