@@ -47,6 +47,7 @@ public class ArithematicCalculator {
 			 break;
 		default:
 			System.out.println("Invalid operator");
+			System.exit(0);
 			break;
 		}
 		
