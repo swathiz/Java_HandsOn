@@ -4,7 +4,7 @@ package datastructures;
 class Stack {
 	static final int MAX = 1000;
 	int top;
-	int a[] = new int[MAX]; // Maximum size of Stack
+	int a[] = new int[MAX]; 
 
 	boolean isEmpty()
 	{
@@ -49,7 +49,6 @@ class Stack {
 }
 }
 
-// Driver code
 public class Stak {
 	public static void main(String args[])
 	{

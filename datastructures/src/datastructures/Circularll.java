@@ -1,6 +1,5 @@
 package datastructures;
 
-//Java program for sorted insert in circular linked list
 
 class Node
 {
@@ -18,17 +17,15 @@ class Circularll
 {
 	Node head;
 
-	// Constructor
+	
 	Circularll() { head = null; }
 
-	/* function to insert a new_node in a list in sorted way.
-	Note that this function expects a pointer to head node
-	as this can modify the head of the input linked list */
+	
 	void sortedInsert(Node new_node)
 	{
 		Node current = head;
 
-		// Case 1 of the above algo
+		
 		if (current == null)
 		{
 			new_node.next = new_node;
@@ -36,12 +33,11 @@ class Circularll
 
 		}
 
-		// Case 2 of the above algo
+		
 		else if (current.data >= new_node.data)
 		{
 
-			/* If value is smaller than head's value then
-			we need to change next of last node */
+			
 			while (current.next != head)
 				current = current.next;
 
@@ -50,11 +46,11 @@ class Circularll
 			head = new_node;
 		}
 
-		// Case 3 of the above algo
+		
 		else
 		{
 
-			/* Locate the node before the point of insertion */
+			
 			while (current.next != head &&
 				current.next.data < new_node.data)
 				current = current.next;
@@ -64,7 +60,7 @@ class Circularll
 		}
 	}
 
-	// Utility method to print a linked list
+
 	void printList()
 	{
 		if (head != null)
@@ -78,20 +74,17 @@ class Circularll
 		}
 	}
 
-	// Driver code to test above
 	public static void main(String[] args)
 	{
 		Circularll list = new Circularll();
 
-		// Creating the linkedlist
-		//int arr[] = new int[] {12, 56, 2, 11, 1, 90};
+		
 		int arr[] = new int[] {56,100,7,1,67,45,34};
 
-		/* start with empty linked list */
+		
 		Node temp = null;
 
-		/* Create linked list from the array arr[].
-		Created linked list will be 1->2->11->12->56->90*/
+		
 		for (int i = 0; i < 6; i++)
 		{
 			temp = new Node(arr[i]);
