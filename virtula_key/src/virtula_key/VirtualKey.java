@@ -25,7 +25,7 @@ public class VirtualKey {
 		System.out.println("To use the application, enter username and password");
 		System.out.println("USERNAME(Try with admin):");
 		String uname = sc.next();
-		System.out.println("Enter PASSWORD(Try with password):");
+		System.out.println("PASSWORD(Try with password):");
 		String pwd = sc.next();
 		boolean chk;
 		try {
@@ -78,7 +78,8 @@ public class VirtualKey {
 					closeApp();
 					break;
 				default:
-					System.out.println("You have made an invalid choice!");
+					invalidInput();
+					
 					break;
 
 				}
@@ -149,7 +150,7 @@ public class VirtualKey {
 					mainMenu();
 					break;
 				default:
-					System.out.println("You have made an invalid choice!");
+					invalidInput();
 					break;
 
 				}
@@ -182,6 +183,10 @@ public class VirtualKey {
 
 	private static void closeApp() {
 		System.out.println("Closing your application... \nThank you!");
+	}
+	
+	private static void invalidInput() {
+		System.out.println("You have made an invalid choice!");
 	}
 
 }
