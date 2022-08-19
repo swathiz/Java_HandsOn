@@ -53,6 +53,7 @@ public class SearchServlet extends HttpServlet {
 			statement.setString(2, dloc);
 			ResultSet rows = statement.executeQuery();
 			PrintWriter out = response.getWriter();
+			out.println("<h2>Availible Flight Deatils</h2>");
 			out.println("<table>");
 			out.println("<tr>");
 			out.println("<th>Flight_Number &nbsp; &nbsp;</th>");

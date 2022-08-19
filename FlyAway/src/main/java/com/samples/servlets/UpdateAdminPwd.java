@@ -57,7 +57,7 @@ Connection connection;
 			System.out.println("Number of rows Update: " + rowsUpdated);
 
 			PrintWriter pw = response.getWriter();
-			pw.write("User updated successfully");
+			pw.write("password updated successfully");
 			pw.write("<p><a href=\"admin.html\">Admin Home</a></p>");
 		} catch (SQLException e) {
 			e.printStackTrace();
