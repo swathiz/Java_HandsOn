@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <button class="btn btn-info" (click)="toggelShow()">show</button>
+    </div>
+    <div class="col-3">
+      <div *ngIf="showNumbers">
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let number of numbers"
+            [ngClass]="{ odd: number % 2 !== 0 }"
+          >
+            <!-- also we can add this in li and remove ngClass
+         [ngStyle]="{
+              backgroundColor: number % 2 == 0 ? 'coral' : 'lightblue'
+            }"
+        -->
+            {{ number }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- using switch directive -->
+    <div class="col-3">
+      <div class="col-3">
+        <div [ngSwitch]="boxNumber">
+          <p *ngSwitchCase="1">Box-1</p>
+          <p *ngSwitchCase="5">Box-5</p>
+          <p *ngSwitchCase="7">Box-7</p>
+          <p *ngSwitchDefault>Box-Default</p>
+        </div>
+      </div>
+    </div>
+    <!-- we have created our own directive below -->
+    <div class="col-3">
+      <p appBasicHighlight>Styled with custom directive</p>
+    </div>
+  </div>
+</div>

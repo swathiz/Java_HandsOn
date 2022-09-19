@@ -1,0 +1,13 @@
+<p
+  [ngStyle]="{ backgroundColor: getColor() }"
+  [ngClass]="{ instock: productStatus === 'InStock' }"
+>
+  Product with ID {{ productId }} is {{ productStatus }}
+</p>
+
+<!--
+    here when status is InStock then class "instock" will get invoked which is defined in 
+    product.component.css
+    getColor is defined in product.component.ts where based on ststus it gives a different color
+
+-->
