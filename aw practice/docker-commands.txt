@@ -1,0 +1,88 @@
+# docker commands
+
+docker run hello-world
+
+-- list all images
+docker images
+
+-- commands to list hostname and ipaddress
+ hostname
+ ifconfig
+
+-- pull images 
+ docker pull alpine
+
+-- run alpine container and list directoriers inside that 
+ docker run alpine ls -al
+
+-- list all containers 
+ docker container ps -a
+ 
+ 
+-- run container with port mapping and environment variable
+-- Port Mapping
+docker container run -d --name mystatic -e AUTHOR="RK" -p 80:80  dockersamples/static-site
+
+-- check this container has its own ip. go to the network section of the inspect output
+docker inspect mystatic
+
+-- go into the container
+docker exec -it mystatic /bin/bash
+--> env  (to see the environment variables)
+
+-- command to run jenkins
+docker container run -d --name myjenkins -p 80:8080 jenkins/jenkins:lts
+
+-- get the initial password
+docker logs myjenkins
+
+-- list volumes
+docker volume ls
+
+-- create volume
+docker volume create jenkinsvolume
+
+-- run jenkins with named volume
+docker container run -d --name myjenkins -p 8080:8080 -v jenkinsvolume:/var/jenkins_home  jenkins/jenkins
+
+-- stop a container
+docker container stop myjenkins
+
+-- delete a container
+docker container rm myjenkins
+
+-- steps to build image custom image
+git clone https://github.com/rksljfsd/p5docs.git
+cd p5docs/simple-website
+docker build -t mywebsiteimage .
+docker images
+
+-- run container from custom image
+docker container run -d --name myweb1 -p 80:80 mywebsiteimage
+
+-- push our image to docker hub
+docker login
+docker tag mywebsiteimage your-dockerhub-username/mywebsiteimage
+docker push your-dockerhub-username/mywebsiteimage
+
+-- run container from other image
+docker container run -d --name rkwebsite -p 80:80 your-dockerhub-username/mywebsiteimage
+
+-- remove image
+docker image rm image-id
+
+
+--- docker swarm commands
+
+- create 3 ec2 instances in same security group
+- edit that security group and allow all traffic from that same security group as source
+- install docker on all 3 ec2 instances (Note: try using userdata)
+- take any ec2 instance and call it master
+- putty into master and run this command
+   docker swarm init --advertise-addr <private-ip-of-master>
+   - the above command will return a command - copy this command and execute on both the nodes
+   docker node ls - list all nodes on swarm 
+- docker service create --name myapp1 --replicas 5 -p 80:80 my-app
+- docker service ls
+- docker service ps myapp1
+- docker service rm myapp1
